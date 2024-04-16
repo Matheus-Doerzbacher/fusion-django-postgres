@@ -1,0 +1,19 @@
+{% load static %}
+<div class="container">
+  {% if messages %} {% for m in messages %}
+  <br />
+  <div
+    class="alert alert-{{ m.tags }} alert-dismissible fade show"
+    role="alert"
+  >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{{ m }}</strong>
+  </div>
+
+  <script>
+    $(".alert").alert();
+  </script>
+  {% endfor %} {% endif %}
+</div>

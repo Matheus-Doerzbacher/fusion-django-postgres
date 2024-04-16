@@ -126,6 +126,17 @@ MEDIA_URL = "media/"
 STATIC_ROOT = os.path.join(STATIC_URL, "staticfiles")
 MEDIA_ROOT = os.path.join(STATIC_URL, "media")
 
+# Email teste console
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+"""
+EMAIL_HOST = "localhost"
+EMAIL_HOR_USER = "no-reply@django.com"
+EMAIL_PORT = "587"
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = "fusion"
+DEFAULT_FROM_EMAIL = "teste@teste.com"
+"""
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

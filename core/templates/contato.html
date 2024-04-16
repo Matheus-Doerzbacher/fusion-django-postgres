@@ -3,25 +3,26 @@
   <div class="container">
     <div class="section-header text-center">
       <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">
-        Entre em contato
+        Contate-nos
       </h2>
       <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
     </div>
     <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.3s">
       <div class="col-lg-7 col-md-12 col-sm-12">
         <div class="contact-block">
-          <form id="contactForm">
+          <form id="contato", method="post", action="{% url "index" %}">
+            {% csrf_token %}
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <input
                     type="text"
                     class="form-control"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
+                    id="nome"
+                    name="nome"
+                    placeholder="Nome"
                     required
-                    data-error="Please enter your name"
+                    data-error="Insira o seu nome"
                   />
                   <div class="help-block with-errors"></div>
                 </div>
@@ -30,12 +31,12 @@
                 <div class="form-group">
                   <input
                     type="text"
-                    placeholder="Email"
+                    placeholder="E-mail"
                     id="email"
                     class="form-control"
                     name="email"
                     required
-                    data-error="Please enter your email"
+                    data-error="Insira o seu E-mail"
                   />
                   <div class="help-block with-errors"></div>
                 </div>
@@ -44,11 +45,12 @@
                 <div class="form-group">
                   <input
                     type="text"
-                    placeholder="Subject"
-                    id="msg_subject"
+                    placeholder="Assunto"
+                    id="assunto"
+                    name="assunto"
                     class="form-control"
                     required
-                    data-error="Please enter your subject"
+                    data-error="Insira o Assunto"
                   />
                   <div class="help-block with-errors"></div>
                 </div>
@@ -57,17 +59,18 @@
                 <div class="form-group">
                   <textarea
                     class="form-control"
-                    id="message"
-                    placeholder="Your Message"
+                    id="mensagem"
+                    name="mensagem"
+                    placeholder="Sua mensagem"
                     rows="7"
-                    data-error="Write your message"
+                    data-error="Escreva uma Mensagem"
                     required
                   ></textarea>
                   <div class="help-block with-errors"></div>
                 </div>
                 <div class="submit-button text-left">
                   <button class="btn btn-common" id="form-submit" type="submit">
-                    Send Message
+                    Enviar e-mail
                   </button>
                   <div id="msgSubmit" class="h3 text-center hidden"></div>
                   <div class="clearfix"></div>
