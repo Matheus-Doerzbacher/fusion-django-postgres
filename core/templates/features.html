@@ -3,49 +3,25 @@
   <div class="container">
     <div class="section-header text-center">
       <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">
-        Awesome Features
+        Recursos incríveis
       </h2>
       <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
         <div class="content-left">
+          {% for r in features %}
+          <!-- Inicio Recurso-->
           <div class="box-item wow fadeInLeft" data-wow-delay="0.3s">
             <span class="icon">
-              <i class="lni-rocket"></i>
+              <i class="{{r.icone}}"></i>
             </span>
             <div class="text">
-              <h4>Bootstrap 4 Based</h4>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
+              <h4>{{r.feature}}</h4>
+              <p>{{r.descricao}}</p>
             </div>
           </div>
-          <div class="box-item wow fadeInLeft" data-wow-delay="0.6s">
-            <span class="icon">
-              <i class="lni-laptop-phone"></i>
-            </span>
-            <div class="text">
-              <h4>Fully Responsive</h4>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </div>
-          <div class="box-item wow fadeInLeft" data-wow-delay="0.9s">
-            <span class="icon">
-              <i class="lni-cog"></i>
-            </span>
-            <div class="text">
-              <h4>HTML5, CSS3 & SASS</h4>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
       <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">

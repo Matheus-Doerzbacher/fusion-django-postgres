@@ -18,7 +18,7 @@ class Base(models.Model):
         abstract = True
 
 
-# CLASSE SERVICO
+# CLASS SERVICO
 class Servico(Base):
     ICONE_CHOICE = (
         ("lni-cog", "Engrenagem"),
@@ -40,7 +40,7 @@ class Servico(Base):
         return self.servico
 
 
-# CLASSE CARGO
+# CLASS CARGO
 class Cargo(Base):
     cargo = models.CharField("Cargo", max_length=100)
 
@@ -52,7 +52,7 @@ class Cargo(Base):
         return self.cargo
 
 
-# CLASSE FUNCIONARIO
+# CLASS FUNCIONARIO
 class Funcionario(Base):
     nome = models.CharField("Nome", max_length=100)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE, verbose_name="Cargo")
@@ -72,3 +72,23 @@ class Funcionario(Base):
 
     def __str__(self):
         return self.nome
+
+
+# CLASS Feature
+class Feature(Base):
+    ICONE_CHOICE = (
+        ("lni-cog", "Engrenagem"),
+        ("lni-laptop-phone", "Laptop"),
+        ("lni-rocket", "Fogete"),
+    )
+
+    feature = models.CharField("Recurso", max_length=100)
+    icone = models.CharField("Icone", max_length=16, choices=ICONE_CHOICE)
+    descricao = models.TextField("Descrição", max_length=200)
+
+    class Meta:
+        verbose_name = "Recurso"
+        verbose_name_plural = "Recursos"
+
+    def __str__(self):
+        return self.feature
