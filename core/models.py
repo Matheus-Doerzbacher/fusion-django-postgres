@@ -53,6 +53,22 @@ class Cargo(Base):
 
 
 # CLASS FUNCIONARIO
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
+
+def validate_image_extension(value):
+    valid_extensions = ["jpg", "jpeg", "png"]
+    extension = value.name.split(".")[-1]
+    print(extension)
+    if extension.lower() not in valid_extensions:
+        raise ValidationError(
+            _(
+                "Formato de arquivo inválido. Somente arquivos JPG, JPEG e PNG são permitidos."
+            )
+        )
+
+
 class Funcionario(Base):
     nome = models.CharField("Nome", max_length=100)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE, verbose_name="Cargo")
@@ -61,6 +77,7 @@ class Funcionario(Base):
         "Imagem",
         upload_to=get_file_path,
         variations={"thumb": {"width": 480, "height": 480, "crop": True}},
+        validators=[validate_image_extension],
     )
     facebook = models.CharField("Facebook", max_length=100, default="#")
     x = models.CharField("X", max_length=100, default="#")

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-*2*l$f!s^=jzyfzk)=%q#_&32#o&4&cv-z8!7a0=w=xy$^4^02"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -141,3 +141,9 @@ DEFAULT_FROM_EMAIL = "teste@teste.com"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+try:
+    from .local_settings import *
+except:
+    pass
